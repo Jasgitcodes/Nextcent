@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImg from '../assets/images/illustration.png'
+import heroImg from '../assets/images/Illustration.png'
 import testimonialImg from '../assets/images/rafiki.png'
 import testimonialImg1 from '../assets/images/pana.png'
 import img9 from '../assets/images/image9.png'
