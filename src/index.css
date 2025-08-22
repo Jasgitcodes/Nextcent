@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #28cb8b; /* Example primary color */
+  --color-secondary: #263238; /* Example secondary color */
+  --color-bg: #f3f4f6; /* Example background color */
+  --color-accent: #f5f7fa;
+  --color-black: #263238; /* Example text color */
+  /* Example text color */
+}
+body {
+  @apply bg-[var(--color-bg)] text-[var(--color-secondary)] font-sans;
+}
