@@ -43,7 +43,7 @@ const Login = () => {
                     <h2 className="text-sm self-center italic mb-4">Enter your Login details</h2>
                 </div>
 
-                {error && <div className="bg-red-50 border-red-500 text-red-500 text-center p-2">{error}</div>}
+                {error && <div className="bg-red-50 border-red-500 mb-4 rounded-md text-red-500 text-center p-2">{error}</div>}
                 <div className="flex flex-col gap-2">
                     <form name="login" action="" className="flex flex-col justify-between gap-2" onSubmit={handleSubmit}>
                         <input
