@@ -13,10 +13,32 @@ import clientImg6 from '../assets/clients/client-6.png'
 import ServiceCard from '../components/ServiceCard'
 import { PiCreditCard, PiHandsClapping, PiUsersThreeLight, PiUsersThree } from 'react-icons/pi'
 import { TbHandClick } from 'react-icons/tb'
+import Navbar from '../components/Navbar'  
+import Footer from '../components/Footer'
+
 
 const home = () => {
+
+    const communityServices = [
+            {
+                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+                title: "Membership Organizations",
+                description: "our membership management software provides full automation of membership renewals and payments."
+            },
+            {
+                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+                title: "National Associations",
+                description: "our membership management software provides full automation of membership renewals and payments."
+            },
+            {
+                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+                title: "Clubs And Groups",
+                description: "our membership management software provides full automation of membership renewals and payments."
+            }
+    ]
     return (
         <main className='  bg-[var(--color-bg)]'>
+            <Navbar />
             {/* hero section */}
             <section id='hero' className='h-[350px] md:h-[500px] overflow-hidden bg-[#f5f7fa] w-full'>
                 <div className='mx-auto max-w-6xl py-0 md:py-16 px-8 relative'>
@@ -29,6 +51,7 @@ const home = () => {
                         <button className=' bg-[var(--color-primary)] text-white font-bold px-6 py-4  rounded-md cursor-pointer hover:bg-[var(--color-primary)] hover:brightness-90'>Register Now
                             <span>
                                 <FaArrowRight className='inline-block ml-4 text-lg' />
+
                             </span>
                         </button>
 
@@ -66,34 +89,18 @@ const home = () => {
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-3 item-center align-center px-8 gap-4 py-2  md:px-0 max-w-6xl w-full'>
                         {/* Service Cards can be added here */}
-                        <ServiceCard
-                            avatar={<PiUsersThreeLight
-                                size={50}
-                                className="p-2 rounded-full shadow-md bg-[var(--color-accent)]"
-                            />}
-                            title="Membership Organizations"
-                            description="our membership management software provides full automation of membership renewals and payments."
-                        />
-                        <ServiceCard
-                            avatar={<PiUsersThreeLight
-                                size={50}
-                                className="p-2 rounded-full shadow-md bg-[var(--color-accent)]"
-                            />}
-                            title="National Associations"
-                            description="our membership management software provides full automation of membership renewals and payments."
-                        />
-                        <ServiceCard
-                            avatar={<PiUsersThreeLight
-                                size={50}
-                                className="p-2 rounded-full shadow-md bg-[var(--color-accent)]"
-                            />}
-                            title="Clubs And Groups"
-                            description="our membership management software provides full automation of membership renewals and payments."
-                        />
+                        {communityServices.map(({ icon, title, description }, id) => (<ServiceCard
+                            key={id}
+                            avatar={icon}
+                            title={title}
+                            description={description}
+                        />))}
+
                     </div>
                 </div>
             </section>
 
+            {/* Testimonial Sections */}
             <section id='testimonials' className='py-8 bg-[white]'>
                 <div className='mx-auto max-w-6xl text-center'>
                     <div className='flex flex-col md:flex-row items-center justify-between'>
@@ -111,6 +118,9 @@ const home = () => {
                     </div>
                 </div>
             </section>
+
+
+            {/* Stats Section */}
             <section id='stats' className='py-8 bg-[var(--color-accent)]'>
                 <div className='mx-auto max-w-6xl text-center'>
                     <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
@@ -174,9 +184,11 @@ const home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* anoter testimonial section */}
             <section id='testimonials' className='py-8 bg-white'>
                 <div className='mx-auto max-w-6xl '>
-                    <div className='flex flex-col md:flex-row items-center justify-between'>
+                    <div className='flex flex-col md:flex-row-reverse items-center justify-between'>
                         <div className='w-[200px] md:w-1/2 md:h-fit '>
                             <img src={testimonialImg1} alt="" className='w-full h-full object-cover overflow-hidden' />
                         </div>
@@ -223,9 +235,8 @@ const home = () => {
                     </div>
                 </div>
             </section>
-
-
-            <section></section>
+           
+            <Footer />
         </main>
     )
 }
