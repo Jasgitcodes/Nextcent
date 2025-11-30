@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 import { FaBars } from 'react-icons/fa'
 import { RiCloseFill } from 'react-icons/ri'
@@ -36,19 +36,22 @@ const Navbar = () => {
                     <ul className='flex gap-8 text-lg'>
                         {urls.map(({ name, link }, index) => (
                             <li key={index}>
-                                <Link
+                                <NavLink
                                     to={link}
-                                    className={` ${name === 'Home' ? 'font-bold' : ''} hover:text-[#26cb8b] transition-colors duration-300`}>
+                                    className={({ isActive }) =>
+                                        isActive ? "text-[var(--color-primary)] font-bold" : "text-gray-600 hover:text-[var(--color-primary)] transition-colors duration-300 ease-in-out "
+                                    }
+                                >
                                     {name}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
 
                     </ul>
                 </div>
                 <div className='hidden md:flex gap-4 font-semibold'>
-                    <button className=' text-[var(--color-primary)] px-4 py-2 rounded-md ' onClick={() => navigate('/login')}>Login</button>
-                    <button className='bg-[var(--color-primary)] text-white px-4 py-2 rounded-md' onClick={() => navigate('/signup')}>Sign Up</button>
+                    <button className=' text-[var(--color-primary)] px-4 py-2 rounded-md cursor-pointer hover:bg-[var(--color-primary)]/20 hover:text-[var(--color-primary)] ' onClick={() => navigate('/login')}>Login</button>
+                    <button className='bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/80 px-4 py-2 rounded-md cursor-pointer' onClick={() => navigate('/signup')}>Sign Up</button>
                 </div>
 
                 <div className='md:hidden flex items-center'>
@@ -62,11 +65,14 @@ const Navbar = () => {
                 <ul className='flex flex-col gap-4 text-lg mb-4' onClick={toggleMenu}>
                     {urls.map(({ name, link }, index) => (
                         <li key={index}>
-                            <Link
+                            <NavLink
                                 to={link}
-                                className={` ${name === 'Home' ? 'font-bold' : ''} hover:text-[#26cb8b] transition-colors duration-300`}>
+                                className={({ isActive }) =>
+                                    isActive ? "text-[var(--color-primary)] font-bold" : "text-gray-600 hover:text-[var(--color-primary)] transition-colors duration-300 ease-in-out"
+                                }
+                            >
                                 {name}
-                            </Link>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

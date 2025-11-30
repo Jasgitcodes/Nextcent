@@ -13,28 +13,29 @@ import clientImg6 from '../assets/clients/client-6.png'
 import ServiceCard from '../components/ServiceCard'
 import { PiCreditCard, PiHandsClapping, PiUsersThreeLight, PiUsersThree } from 'react-icons/pi'
 import { TbHandClick } from 'react-icons/tb'
-import Navbar from '../components/Navbar'  
+import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
 
 
 const home = () => {
-
+    const navigate = useNavigate()
     const communityServices = [
-            {
-                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
-                title: "Membership Organizations",
-                description: "our membership management software provides full automation of membership renewals and payments."
-            },
-            {
-                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
-                title: "National Associations",
-                description: "our membership management software provides full automation of membership renewals and payments."
-            },
-            {
-                icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
-                title: "Clubs And Groups",
-                description: "our membership management software provides full automation of membership renewals and payments."
-            }
+        {
+            icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+            title: "Membership Organizations",
+            description: "our membership management software provides full automation of membership renewals and payments."
+        },
+        {
+            icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+            title: "National Associations",
+            description: "our membership management software provides full automation of membership renewals and payments."
+        },
+        {
+            icon: <PiUsersThreeLight size={50} className="p-2 rounded-full shadow-md bg-[var(--color-accent)]" />,
+            title: "Clubs And Groups",
+            description: "our membership management software provides full automation of membership renewals and payments."
+        }
     ]
     return (
         <main className='  bg-[var(--color-bg)]'>
@@ -48,7 +49,7 @@ const home = () => {
                             <span className='md:block font-extrabold text-[var(--color-primary)]'> from 8 years </span></h1>
                         <p className='text-md'>where to grow your business as a photographer; site or social media  </p>
 
-                        <button className=' bg-[var(--color-primary)] text-white font-bold px-6 py-4  rounded-md cursor-pointer hover:bg-[var(--color-primary)] hover:brightness-90'>Register Now
+                        <button className=' bg-[var(--color-primary)] text-white font-bold px-6 py-4  rounded-md cursor-pointer hover:bg-[var(--color-primary)] hover:brightness-90' onClick={() => navigate("/signup")}>Register Now
                             <span>
                                 <FaArrowRight className='inline-block ml-4 text-lg' />
 
@@ -235,9 +236,9 @@ const home = () => {
                     </div>
                 </div>
             </section>
-           
+
             <Footer />
-        </main>
+        </main >
     )
 }
 
