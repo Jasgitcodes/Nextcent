@@ -38,7 +38,8 @@ const Login = () => {
 
 
                 <div className=" flex flex-col  justify-center gap-2 items-center">
-                    <img src="logo.png" alt="logo" className="w-24 h-10" />
+                    <Link to="/"><img src="logo.png" alt="logo" className="w-24 h-10" />
+                    </Link>
                     <h2 className="text-sm self-center italic mb-4">Enter your Login details</h2>
                 </div>
 
