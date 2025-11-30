@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { FaBars } from 'react-icons/fa'
 import { RiCloseFill } from 'react-icons/ri'
@@ -18,12 +18,12 @@ const Navbar = () => {
     }
 
     const urls = [
-        { name: 'Home', link: '#' },
-        { name: 'Services', link: '#' },
-        { name: 'Products', link: '#' },
-        { name: 'Feature', link: '#' },
-        { name: 'Testimonials', link: '#' },
-        { name: 'FAQ', link: '#' },
+        { name: 'Home', link: '/' },
+        { name: 'Services', link: '/services' },
+        { name: 'Products', link: '/products' },
+        { name: 'Feature', link: '/feature' },
+        { name: 'Testimonials', link: '/testimonials' },
+        { name: 'FAQ', link: '/faq' },
     ]
     const navigate = useNavigate()
     return (
@@ -36,11 +36,11 @@ const Navbar = () => {
                     <ul className='flex gap-8 text-lg'>
                         {urls.map(({ name, link }, index) => (
                             <li key={index}>
-                                <a
-                                    href={link}
+                                <Link
+                                    to={link}
                                     className={` ${name === 'Home' ? 'font-bold' : ''} hover:text-[#26cb8b] transition-colors duration-300`}>
                                     {name}
-                                </a>
+                                </Link>
                             </li>
                         ))}
 
@@ -62,17 +62,17 @@ const Navbar = () => {
                 <ul className='flex flex-col gap-4 text-lg mb-4' onClick={toggleMenu}>
                     {urls.map(({ name, link }, index) => (
                         <li key={index}>
-                            <a
-                                href={link}
+                            <Link
+                                to={link}
                                 className={` ${name === 'Home' ? 'font-bold' : ''} hover:text-[#26cb8b] transition-colors duration-300`}>
                                 {name}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>
                 <div className='flex justify-around items-center border-t pt-2 md:hidden gap-4 font-semibold'>
-                    <button className=' text-[var(--color-primary)] px-4  rounded-md ' onClick={() => navigate('/login')}>Login</button>    
-                    <button className=' text-[var(--color-primary)] px-4  rounded-md' onClick={() => navigate('/signup')}>Sign Up</button>
+                    <button className=' text-[var(--color-primary)] px-4 py-2 cursor-pointer rounded-md ' onClick={() => navigate('/login')}>Login</button>
+                    <button className=' text-[var(--color-primary)] px-4 py-2 cursor-pointer rounded-md' onClick={() => navigate('/signup')}>Sign Up</button>
                 </div>
             </div>
         </nav>

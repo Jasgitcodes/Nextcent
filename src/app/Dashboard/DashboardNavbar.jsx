@@ -3,9 +3,9 @@ import { useAuth } from '../../context/AuthContext';
 import { auth } from '../../config/firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { PiBell, PiCaretDown, PiUser } from 'react-icons/pi';
+import { PiBell, PiCaretDown, PiUser, PiList } from 'react-icons/pi';
 
-const DashboardNavbar = () => {
+const DashboardNavbar = ({ toggleSidebar }) => {
     const { currentUser } = useAuth();
     const navigate = useNavigate();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,7 +21,13 @@ const DashboardNavbar = () => {
 
     return (
         <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 sticky top-0 z-10">
-            <div className="flex items-center">
+            <div className="flex items-center gap-4">
+                <button
+                    onClick={toggleSidebar}
+                    className="md:hidden p-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+                >
+                    <PiList size={24} />
+                </button>
                 <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
             </div>
 
