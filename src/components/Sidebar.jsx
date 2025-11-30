@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
                 <div className="p-6 flex items-center justify-between border-b border-gray-100">
-                    <Link to="/">
+                    <Link to="/dashboard">
                         <img src="/logo.png" alt="Nextcent" className="h-8" />
                     </Link>
                     <button

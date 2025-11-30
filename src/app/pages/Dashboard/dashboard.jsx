@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAuth } from '../../context/AuthContext'
-import DashboardLayout from './DashboardLayout'
+import { useAuth } from '../../../context/AuthContext'
+import DashboardLayout from '../../Layout/DashboardLayout'
 
 const Dashboard = () => {
     const { currentUser } = useAuth();

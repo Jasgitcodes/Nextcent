@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
-import { auth } from '../../config/firebase';
+import { useAuth } from '../context/AuthContext';
+import { auth } from '../config/firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { PiBell, PiCaretDown, PiUser, PiList } from 'react-icons/pi';
