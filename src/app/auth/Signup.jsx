@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { auth } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
+import { doc, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
+
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -19,9 +21,11 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+            const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password, form.name);
             const user = userCredential.user;
             console.log(user);
+
+            await storeUserProfile(user.uid, { name: formData.name, email: formData.email, password: formData.password });
             navigate("/dashboard");
         } catch (error) {
             const errorCode = error.code;
@@ -30,6 +34,16 @@ const Signup = () => {
             setError(errorMessage);
         }
     };
+
+    const storeUserProfile = async (uid, userData) => {
+        try {
+            await setDoc(doc(db, "users", uid), userData)
+
+        } catch (error) {
+            console.log(error, "unable to store user data")
+        }
+    };
+
 
     const [error, setError] = useState(null);
 
@@ -45,7 +59,7 @@ const Signup = () => {
                 </div>
                 {error && <div className="bg-red-50 text-center rounded mb-6 border-red-500 text-red-500 p-2">{error}</div>}
                 <div className="">
-                    <form name="signup" className="flex flex-col justify-between gap-2" onSubmit={handleSubmit}>
+                    <form name="signup" className="flex flex-col justify-between gap-2" >
                         <input
                             type="text"
                             name="name"
