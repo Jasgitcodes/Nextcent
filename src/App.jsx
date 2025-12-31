@@ -8,7 +8,7 @@ import Dashboard from './app/pages/Dashboard/dashboard'
 import NotFound from './app/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import './index.css'
-import Post from './app/pages/post'
+import Post from './app/pages/Post'
 
 function App() {
 
