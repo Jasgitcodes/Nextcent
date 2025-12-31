@@ -71,7 +71,7 @@ const Post = () => {
     const totalPages = Math.ceil(post.length / postPerPage)
 
     return (
-        <div className="flex flex-col gap-4 w-full bg-gray-300  max-w-7xl mx-auto mt-10 rounded-xl p-6 shadow justify-between items-center h-[80vh] overflow-y-hidden">
+        <div className="flex flex-col gap-4 w-full bg-[var(--color-primary)]/50 max-w-7xl mx-auto mt-10 rounded-xl p-6 shadow justify-between items-center h-[80vh] overflow-y-hidden">
             <div className="p-4 bg-gray-200 rounded shadow flex flex-col gap-0.5 items-center justify-between ">
                 {quote && (
                     <>
