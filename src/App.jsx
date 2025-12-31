@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './app/Home'  // Importing the home component
 import Login from './app/auth/Login'
 import Signup from './app/auth/Signup'
+import Users from './app/pages/Users'
 import Dashboard from './app/pages/Dashboard/dashboard'
 import NotFound from './app/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import './index.css'
+import Post from './app/pages/post'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/post" element={<Post />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
